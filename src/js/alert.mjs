@@ -1,6 +1,7 @@
 export default class Alert {
   constructor() {
-    this.path = "../json/alerts.json";
+    // Relative path to alerts.json from src/js/
+    this.path = "./json/alerts.json";
   }
 
   async init() {

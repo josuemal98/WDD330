@@ -1,4 +1,6 @@
 import Alert from "./Alert.mjs";
 
-const alert = new Alert();
-alert.init();
+document.addEventListener("DOMContentLoaded", () => {
+  const alertSystem = new Alert();
+  alertSystem.init();
+});
