@@ -26,10 +26,16 @@ export default class ProductList {
     document.querySelector(".title").textContent = this.category;
   }
 
-  renderList(list) {
-    
-    renderListWithTemplate(productCardTemplate, this.listElement, list);
-
+  async initSearch(query) {
+    const list = await this.dataSource.searchProducts(query);
+    this.renderList(list);
   }
 
+  renderList(list) {
+    if (!list || list.length === 0) {
+      this.listElement.innerHTML = "<p class='no-results'>No products found matching your search.</p>";
+      return;
+    }
+    renderListWithTemplate(productCardTemplate, this.listElement, list, "afterbegin", true);
+  }
 }
