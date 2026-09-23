@@ -4,8 +4,6 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: "src",
 
-  base: "/WDD330/",
-
   build: {
     outDir: "../dist",
 
