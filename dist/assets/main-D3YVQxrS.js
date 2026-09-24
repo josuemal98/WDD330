@@ -1,1 +1,0 @@
-import { l as t } from "./utils-k8IFu3EB.js"; import { P as o } from "./ExternalServices-CEza68mI.js"; import { P as e } from "./ProductList-qxd0FWqz.js"; const r = new o("tents"), s = document.querySelector(".product-list"), c = new e("Tents", r, s); c.init(); t();
