@@ -406,3 +406,19 @@ header .cart {
     margin: 0.5rem 0 0 0;
   }
 }
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+.alert span {
+  cursor: pointer;
+  font-weight: bold;
+}
