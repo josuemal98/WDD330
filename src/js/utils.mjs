@@ -27,7 +27,7 @@ export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param);
-  return product
+  return product;
 }
 
 export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
@@ -61,4 +61,44 @@ export async function loadHeaderFooter() {
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
+}
+
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement);
+  const convertedJSON = {};
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+  return convertedJSON;
+}
+
+
+export function alertMessage(message, scroll = true) {
+  const alert = document.createElement('div');
+  alert.classList.add('alert');
+  
+  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+  
+  alert.addEventListener('click', function(e) {
+    if (e.target.tagName === 'SPAN' || e.target.innerText === 'X') {
+      const main = document.querySelector('main');
+      if (main && main.contains(this)) {
+        main.removeChild(this);
+      }
+    }
+  });
+
+  const main = document.querySelector('main');
+  if (main) {
+    main.prepend(alert);
+  }
+
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
+}
+
+export function removeAllAlerts() {
+  const alerts = document.querySelectorAll(".alert");
+  alerts.forEach((alert) => alert.remove());
 }
